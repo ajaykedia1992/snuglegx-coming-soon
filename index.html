@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>SnugLegX — Coming Soon</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@600;700&display=swap" rel="stylesheet">
+
+
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #FAF9F6;
+    }
+    h1 {
+      font-family: 'Lexend', serif;
+      letter-spacing: -0.02em;
+    }
+  </style>
+</head>
+
+<body class="relative min-h-screen overflow-hidden">
+
+  <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover z-0">
+    <source src="background.mp4" type="video/mp4">
+  </video>
+
+  <!-- LUXURY OVERLAY -->
+  <div class="absolute inset-0 bg-white/60 backdrop-blur-sm"></div>
+
+  <!-- CONTENT -->
+  <main class="relative z-10 max-w-3xl mx-auto px-6 py-24 text-center">
+
+    <!-- MAIN HERO TEXT ON IMAGE -->
+    <div class="mb-16">
+      <h1 class="text-4xl sm:text-5xl font-bold text-gray-900">
+        Elevate Your Everyday Movement
+      </h1>
+      <p class="mt-4 text-lg sm:text-xl text-gray-700">
+        Premium fitness wear. Launching soon.
+      </p>
+    </div>
+
+    <!-- LOGO -->
+    <div class="mb-8">
+      <div class="mx-auto w-24 h-24 flex items-center justify-center rounded-full bg-white shadow-sm animate-float">
+        <img src="logo.png" />
+      </div>
+    </div>
+
+    <!-- BRAND NAME -->
+    <div class="mx-auto w-128 h-24 flex items-center justify-center animate-float">
+      <img src="brandName.png" width="350" class="mx-auto" />
+    </div>
+
+    <!-- SUBTEXT -->
+    <p class="text-lg text-gray-700 max-w-xl mx-auto">
+      Performance fabrics. Clean design. Everyday confidence.
+      We’re crafting premium fitness wear — launching soon.
+    </p>
+
+    <!-- <div class="w-24 h-px bg-gray-300 mx-auto mt-10 mb-8"></div>
+
+    EMAIL FORM 
+    <form id="waitlist" class="max-w-xl mx-auto flex flex-col sm:flex-row gap-3">
+      <input type="email" id="email" required
+             placeholder="Your email address"
+             class="flex-1 px-4 py-3 rounded-md border border-gray-300 bg-white focus:ring-2 focus:ring-gray-300 outline-none">
+      <button id="submitBtn"
+              class="px-5 py-3 rounded-md bg-black text-white font-medium hover:opacity-90 transition">
+        Join Waitlist
+      </button>
+    </form> -->
+    <div class="mt-8">
+      <p class="text-lg sm:text-xl text-gray-700">
+        Follow us on Instagram for updates: 
+        <a href="https://www.instagram.com/snuglegx" target="_blank" class="text-black font-semibold underline">
+          @snuglegx
+        </a>
+      </p>
+    </div>
+
+    <p id="message" class="mt-3 text-sm text-gray-600"></p>
+
+    <!-- FEATURES -->
+    <div class="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-8 text-gray-700 text-sm">
+      <div>
+        <div class="font-semibold">Sustainably Sourced</div>
+        <div>Eco fabrics, low-waste production.</div>
+      </div>
+      <div>
+        <div class="font-semibold">Tailored Fit</div>
+        <div>Engineered for movement & comfort.</div>
+      </div>
+      <div>
+        <div class="font-semibold">Limited Launch</div>
+        <div>Exclusive early access for subscribers.</div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+  <footer class="mt-14 flex justify-center items-center gap-4">
+    <a href="https://instagram.com/snuglegx" target="_blank" class="hover:opacity-80 transition">
+      <!-- Instagram SVG -->
+      <img src="instagram.svg" alt="Instagram" class="w-12 h-12">
+    </a>
+
+    <a href="https://www.tiktok.com/@snuglegx_official" target="_blank" class="hover:opacity-80 transition">
+    <!-- Simplified TikTok Note Icon -->
+      <img src="tiktok.svg" alt="TikTok" class="w-12 h-12">
+    </a>
+  </footer>
+
+  </main>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const form = document.getElementById('waitlist');
+    const email = document.getElementById('email');
+    const msg = document.getElementById('message');
+    const btn = document.getElementById('submitBtn');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      msg.textContent = "";
+
+      if (!email.value || !/\S+@\S+\.\S+/.test(email.value)) {
+        msg.textContent = "Please enter a valid email.";
+        return;
+      }
+
+      btn.disabled = true;
+      btn.textContent = "Joining...";
+
+      try {
+        await fetch("/subscribe", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email: email.value })
+        });
+
+        msg.textContent = "You're on the list!";
+        email.value = "";
+        btn.textContent = "Joined ✔";
+      } catch (e) {
+        msg.textContent = "Error — try again.";
+        btn.textContent = "Join Waitlist";
+      }
+
+      btn.disabled = false;
+    });
+  </script>
+
+</body>
+</html>
