@@ -2,16 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>SnugLegX — Coming Soon</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SnugLegX — Premium Fitness Wear</title>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@600;700&display=swap" rel="stylesheet">
-
-
 
   <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -19,147 +16,242 @@
   <style>
     body {
       font-family: 'Inter', sans-serif;
-      background-color: #FAF9F6;
+      background-color: #FFFFFF;
     }
-    h1 {
-      font-family: 'Lexend', serif;
+    .brand-title {
+      font-family: 'Lexend', sans-serif;
       letter-spacing: -0.02em;
+    }
+    .animate-float {
+      animation: float 3s ease-in-out infinite;
+    }
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+      100% { transform: translateY(0); }
+    }
+    @keyframes typing-with-cursor {
+      0% { width: 0; border-right-color: #8b5cf6; }
+      90% { border-right-color: #8b5cf6; }
+      100% { width: 26ch; border-right-color: transparent; }
+    }
+    .animate-typing {
+      width: 0;
+      animation: typing-with-cursor 2s steps(26) forwards;
+    }
+    .logo-spin {
+      animation: spin-lattoo 8s linear infinite;
+      transform-origin: center center;
+    }
+    @keyframes spin-lattoo {
+      0% { transform: rotateY(0deg); }
+      100% { transform: rotateY(360deg); }
     }
   </style>
 </head>
 
 <body class="relative min-h-screen">
 
-  <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none">
-    <source src="background.mp4" type="video/mp4">
-  </video>
+  <!-- MAIN CONTAINER -->
+  <div class="relative">
 
+    <!-- HEADER -->
+    <header class="flex justify-center md:justify-start items-center px-6 py-4 md:px-8 md:py-6">
+      <img src="logo.png" class="w-16 h-16 md:w-16 md:h-16 logo-spin" />
+    </header>
 
-  <!-- LUXURY OVERLAY -->
-  <div class="absolute inset-0 bg-white/60 backdrop-blur-sm pointer-events-none"></div>
+    <!-- HERO SECTION -->
+    <section class="text-center pt-6 pb-10 md:pt-10 md:pb-16 max-w-3xl mx-auto px-4 md:px-6">
 
-  <!-- CONTENT -->
-  <main class="relative z-10 max-w-3xl mx-auto px-6 py-24 text-center">
+      <!-- Brand logo -->
+      <div class="mx-auto w-80 h-24 flex items-center justify-center animate-float">
+        <img src="brandName.png" />
+      </div>
 
-    <!-- MAIN HERO TEXT ON IMAGE -->
-    <div class="mb-16">
-      <h1 class="text-4xl sm:text-5xl font-bold text-gray-900">
-        Elevate Your Everyday Movement
-      </h1>
-      <p class="mt-4 text-lg sm:text-xl text-gray-700">
-        Premium fitness wear. Launching soon.
+      <!-- Typing headline -->
+      <div class="flex justify-center mt-4">
+        <h1 class="text-xl md:text-3xl font-semibold overflow-hidden whitespace-nowrap border-r-4 border-purple-500 pr-1 text-transparent bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 bg-clip-text animate-typing inline-block">
+          Performance Wear with Integrity
+        </h1>
+      </div>
+
+      <!-- Subtext -->
+      <p class="mt-4 md:mt-6 text-base md:text-lg text-gray-700 max-w-lg mx-auto px-4 bg-gradient-to-r from-gray-600 to-gray-400 bg-clip-text text-transparent">
+        Elevating your everyday movement with premium fabrics, engineered fit, and minimalist design that moves with you.
       </p>
-    </div>
 
-    <!-- LOGO -->
-    <div class="mb-8">
-      <div class="mx-auto w-24 h-24 flex items-center justify-center rounded-full bg-white shadow-sm animate-float">
-        <img src="logo.png" />
+      <!-- Countdown Timer -->
+      <div class="mt-10">
+        <h2 class="text-lg md:text-2xl font-semibold text-gray-700 mb-4">
+          Countdown to Launch
+        </h2>
+        <div id="countdown" class="text-2xl md:text-4xl font-bold text-transparent bg-gradient-to-r from-green-500 via-gray-500 to-black-500 bg-clip-text"></div>
+      </div>
+
+    </section>
+
+    <!-- CONTENT BLOCK -->
+    <section class="flex flex-col lg:flex-row items-center gap-10 md:gap-12 px-6 md:px-10 py-10 md:py-16 max-w-6xl mx-auto
+                bg-gradient-to-tr from-white via-gray-50 to-white rounded-xl">
+      <div class="text-center lg:text-left">
+        <h2 class="text-3xl md:text-4xl font-semibold">New Formulations Loading…</h2>
+        <p class="mt-4 text-gray-600 max-w-md mx-auto lg:mx-0 text-sm md:text-base">
+          Behind the scenes, we’ve been developing advanced ActiveFlex™ fabrics that move with you.
+          Breathable. Sculpting. Sweat-adaptive.
+        </p>
+        <a href="#" class="inline-block mt-6 px-5 py-3 bg-black text-white rounded-full hover:opacity-90 transition text-sm md:text-base">
+          Discover
+        </a>
+      </div>
+
+      <img src="2.jpg" class="rounded-lg shadow-md w-full max-w-sm md:max-w-lg" />
+    </section>
+
+    <!-- PRODUCT PAIR SECTION -->
+    <section class="px-6 md:px-10 py-14 md:py-20 max-w-6xl mx-auto">
+      <div class="flex flex-col md:flex-row items-start gap-10 md:gap-16">
+
+        <!-- Left column: images + button on mobile -->
+        <div class="grid grid-cols-2 gap-6 order-2 md:order-1 md:w-1/2">
+          <div class="text-center">
+            <img src="4.jpg" class="w-full rounded-xl shadow" />
+            <p class="mt-3 font-medium text-sm md:text-base">SnugLegX Seamless Leggings</p>
+          </div>
+          <div class="text-center">
+            <img src="3.jpg" class="w-full rounded-xl shadow" />
+            <p class="mt-3 font-medium text-sm md:text-base">SnugLegX FlexFit Sports Bra</p>
+          </div>
+          <div class="text-center">
+            <img src="7.png" class="w-full rounded-xl shadow" />
+            <p class="mt-3 font-medium text-sm md:text-base">SnugLegX Comfort Hoodie</p>
+          </div>
+          <div class="text-center">
+            <img src="8.png" class="w-full rounded-xl shadow" />
+            <p class="mt-3 font-medium text-sm md:text-base">SnugLegX Seamless Shorts</p>
+          </div>
+
+          <!-- Button only visible on mobile -->
+          <a href="#" 
+           class="md:hidden col-span-2 mt-6 px-5 py-3 bg-black text-white rounded-full hover:opacity-90 transition text-sm flex items-center justify-center">
+          Launching soon
+        </a>
+        </div>
+
+        <!-- Right column: heading + text + button on desktop -->
+        <div class="md:w-1/2 text-center md:text-left flex flex-col justify-center order-1 md:order-2">
+          <h2 class="text-3xl md:text-4xl font-semibold">Everyday essentials</h2>
+          <p class="mt-4 text-gray-600 text-sm md:text-base max-w-md">
+           Our beginner-friendly ActiveFlex Leggings boost comfort & mobility,
+          while SnugCore shaping tech enhances natural curves.  
+          Designed with breathable, sweat-wicking fabrics, they move seamlessly 
+          with every stretch, squat, and sprint. The high-rise waistband provides 
+          support without digging in, and the minimalist design ensures you look 
+          sleek in and out of the gym. Perfect for workouts, yoga sessions, or 
+          everyday athleisure, these leggings combine style, performance, and 
+          all-day comfort.
+          </p>
+
+          <!-- Button only visible on desktop -->
+          <a href="#" 
+             class="hidden md:flex items-center justify-center mt-6 md:mt-8 px-5 py-3 bg-black text-white rounded-full hover:opacity-90 transition text-sm md:text-base">
+            Launching soon
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Launch Popup Modal -->
+    <div id="launchModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 hidden">
+      <div class="bg-white rounded-xl p-6 md:p-10 max-w-md w-full text-center relative">
+        <button id="closeModal" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800 text-xl">&times;</button>
+        <h2 class="text-2xl md:text-3xl font-semibold mb-4">Thank you for your interest!</h2>
+        <p class="text-gray-600 mb-6">
+          We are working hard on the launch. Stay tuned!
+        </p>
+
+        <!-- Countdown inside modal -->
+        <div id="modalCountdown" class="text-2xl md:text-4xl font-bold text-transparent bg-gradient-to-r from-green-500 via-gray-500 to-black-500 bg-clip-text mb-6"></div>
+
+        <p class="text-gray-600">
+          Follow us for updates: 
+          <a href="https://www.instagram.com/snuglegx" target="_blank" class="font-semibold underline">Instagram</a> & 
+          <a href="https://www.tiktok.com/@snuglegx_official" target="_blank" class="font-semibold underline">TikTok</a>
+        </p>
       </div>
     </div>
 
-    <!-- BRAND NAME -->
-    <div class="mx-auto w-128 h-24 flex items-center justify-center animate-float">
-      <img src="brandName.png" width="350" class="mx-auto" />
-    </div>
-
-    <!-- SUBTEXT -->
-    <p class="text-lg text-gray-700 max-w-xl mx-auto">
-      Performance fabrics. Clean design. Everyday confidence.
-      We’re crafting premium fitness wear — launching soon.
-    </p>
-
-    <!-- <div class="w-24 h-px bg-gray-300 mx-auto mt-10 mb-8"></div>
-
-    EMAIL FORM 
-    <form id="waitlist" class="max-w-xl mx-auto flex flex-col sm:flex-row gap-3">
-      <input type="email" id="email" required
-             placeholder="Your email address"
-             class="flex-1 px-4 py-3 rounded-md border border-gray-300 bg-white focus:ring-2 focus:ring-gray-300 outline-none">
-      <button id="submitBtn"
-              class="px-5 py-3 rounded-md bg-black text-white font-medium hover:opacity-90 transition">
-        Join Waitlist
-      </button>
-    </form> -->
-    <div class="mt-8">
-      <p class="text-lg sm:text-xl text-gray-700">
-        Follow us on Instagram for updates: 
-        <a href="https://www.instagram.com/snuglegx" target="_blank" class="text-black font-semibold underline">
+    <!-- SOCIAL + FOOTER -->
+    <footer class="py-12 md:py-16 text-center text-gray-700 px-4">
+      <div class="text-base md:text-lg">
+        Follow us on Instagram:
+        <a href="https://www.instagram.com/snuglegx" target="_blank" class="font-semibold underline">
           @snuglegx
         </a>
-      </p>
-    </div>
-
-    <p id="message" class="mt-3 text-sm text-gray-600"></p>
-
-    <!-- FEATURES -->
-    <div class="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-8 text-gray-700 text-sm">
-      <div>
-        <div class="font-semibold">Sustainably Sourced</div>
-        <div>Eco fabrics, low-waste production.</div>
       </div>
-      <div>
-        <div class="font-semibold">Tailored Fit</div>
-        <div>Engineered for movement & comfort.</div>
+
+      <div class="flex justify-center gap-6 mt-6">
+        <a href="https://instagram.com/snuglegx" target="_blank">
+          <img src="instagram.svg" class="w-8 md:w-10" />
+        </a>
+        <a href="https://www.tiktok.com/@snuglegx_official" target="_blank">
+          <img src="tiktok.svg" class="w-8 md:w-10" />
+        </a>
       </div>
-      <div>
-        <div class="font-semibold">Limited Launch</div>
-        <div>Exclusive early access for subscribers.</div>
-      </div>
-    </div>
 
-    <!-- FOOTER -->
-  <footer class="mt-14 flex justify-center items-center gap-4">
-    <a href="https://instagram.com/snuglegx" target="_blank" class="hover:opacity-80 transition">
-      <!-- Instagram SVG -->
-      <img src="instagram.svg" alt="Instagram" class="w-12 h-12">
-    </a>
+      <p class="mt-8 md:mt-10 text-xs md:text-sm text-gray-500">© <span id="year"></span> SnugLegX. All rights reserved.</p>
+    </footer>
 
-    <a href="https://www.tiktok.com/@snuglegx_official" target="_blank" class="hover:opacity-80 transition">
-    <!-- Simplified TikTok Note Icon -->
-      <img src="tiktok.svg" alt="TikTok" class="w-12 h-12">
-    </a>
-  </footer>
-
-  </main>
+  </div>
 
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
+    // Countdown logic
+    const launchDate = new Date("January 15, 2026 00:00:00").getTime();
+    const countdownEl = document.getElementById("countdown");
+    const modalCountdown = document.getElementById("modalCountdown");
 
-    const form = document.getElementById('waitlist');
-    const email = document.getElementById('email');
-    const msg = document.getElementById('message');
-    const btn = document.getElementById('submitBtn');
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = launchDate - now;
 
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      msg.textContent = "";
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-      if (!email.value || !/\S+@\S+\.\S+/.test(email.value)) {
-        msg.textContent = "Please enter a valid email.";
-        return;
+      countdownEl.innerHTML = `${days}d : ${hours}h : ${minutes}m : ${seconds}s`;
+      modalCountdown.innerHTML = `${days}d : ${hours}h : ${minutes}m : ${seconds}s`;
+
+      if(distance <= 0){
+        countdownEl.innerHTML = "Product Launched!";
+        modalCountdown.innerHTML = "Product Launched!";
+        clearInterval(countdownInterval);
       }
+    }
 
-      btn.disabled = true;
-      btn.textContent = "Joining...";
+    const countdownInterval = setInterval(updateCountdown, 1000);
+    updateCountdown();
 
-      try {
-        await fetch("/subscribe", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ email: email.value })
+    // Modal logic
+    const modal = document.getElementById("launchModal");
+    const closeBtn = document.getElementById("closeModal");
+    const desktopBtn = document.querySelector(".md\\:flex");
+    const mobileBtn = document.querySelector(".md\\:hidden");
+    const discoverBtn = document.querySelectorAll('a[href="#"]:not(.md\\:flex,.md\\:hidden)');
+
+    [desktopBtn, mobileBtn, ...discoverBtn].forEach(btn => {
+      if(btn){
+        btn.addEventListener("click", (e) => {
+          e.preventDefault();
+          modal.classList.remove("hidden");
         });
-
-        msg.textContent = "You're on the list!";
-        email.value = "";
-        btn.textContent = "Joined ✔";
-      } catch (e) {
-        msg.textContent = "Error — try again.";
-        btn.textContent = "Join Waitlist";
       }
-
-      btn.disabled = false;
     });
+
+    closeBtn.addEventListener("click", () => modal.classList.add("hidden"));
+
+    // Update year in footer
+    document.getElementById("year").innerText = new Date().getFullYear();
   </script>
 
 </body>
